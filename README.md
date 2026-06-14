@@ -57,7 +57,6 @@ Event-estimator-website/
 
 * User authentication
 * Event history tracking
-* PDF report generation
 * Advanced budgeting analytics
 * Database integration
 
