@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Estimator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="estimator-container">
+        <h1>Event <span>Estimator </span></h1>
+
+        <div class="input-section">
+            
+            <h2 class="section-title">1. What are we celebrating?</h2>
+            <div class="btn-group">
+                <button class="type-btn active" data-type="1.2">💍 Wedding</button>
+                <button class="type-btn" data-type="1.0">🎂 Birthday</button>
+                <button class="type-btn" data-type="1.1">🏢 Corporate</button>
+                <button class="type-btn" data-type="1.0">🎉 Party</button>
+            </div>
+
+            <h2 class="section-title">2. Choose Venue Style</h2>
+            <div class="btn-group">
+                <button class="venue-btn active" data-venue="1.0">🏛️ Banquet Hall</button>
+                <button class="venue-btn" data-venue="1.2">🌳 Open Lawn</button>
+                <button class="venue-btn" data-venue="2.0">🏖️ Luxury Resort</button>
+            </div>
+
+            <h2 class="section-title">3. Who is coming?</h2>
+            <div class="slider-container">
+                <div class="guest-display"><span id="guestCount">250</span> Guests</div>
+                <input type="range" id="guestSlider" min="50" max="1000" step="10" value="250">
+            </div>
+
+            <h2 class="section-title">4. Catering Preference</h2>
+            <div class="btn-group">
+                <button class="food-btn active" data-food="1.0">🥗 Pure Veg</button>
+                <button class="food-btn" data-food="1.4">🍗 Veg + Non-Veg</button>
+                <button class="food-btn" data-food="1.8">🍣 Premium Mix</button>
+            </div>
+
+            <h2 class="section-title">5. Choose Your Experience</h2>
+            <div class="tiers-grid">
+                <div class="tier-card" data-tier="1">
+                    <h3>Economy</h3>
+                    <p>Minimalist & Budget Friendly</p>
+                </div>
+                <div class="tier-card active" data-tier="1.5">
+                    <h3>Standard</h3>
+                    <p>Clean & Classic Everyday Look</p>
+                </div>
+                <div class="tier-card" data-tier="2.5">
+                    <h3>Premium</h3>
+                    <p>Elevated with Silver Accents</p>
+                </div>
+                <div class="tier-card" data-tier="4">
+                    <h3>Luxury</h3>
+                    <p>Exclusive Gold-Tier Experience</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="receipt-sidebar">
+            <div>
+                <h2 class="section-title">Live Estimate</h2>
+                <div class="receipt-item"><span>Venue</span><span id="venueCost">₹ 0</span></div>
+                <div class="receipt-item"><span>Catering</span><span id="cateringCost">₹ 0</span></div>
+                <div class="receipt-item"><span>Decor & Setup</span><span id="decorCost">₹ 0</span></div>
+                <div class="divider"></div>
+            </div>
+            <div class="total-section">
+                <div class="total-label">Estimated Total</div>
+                <div class="total-amount">₹ <span id="totalCost">0</span></div>
+                <button class="cta-btn" id="downloadBtn">Download PDF Estimate</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="print-invoice">
+        <div class="pdf-header">
+            <div><h2>EVENT ESTIMATOR PRO</h2><p>Automated Cost Estimate Receipt</p></div>
+            <div class="text-right"><p><strong>Date:</strong> <span id="pdfDate"></span></p></div>
+        </div>
+        <div class="pdf-summary">
+            <h4>Event Details Selected:</h4>
+            <p><strong>Event:</strong> <span id="pdfType"></span> &nbsp; | &nbsp; 
+               <strong>Venue:</strong> <span id="pdfVenueName"></span> &nbsp; | &nbsp; 
+               <strong>Food:</strong> <span id="pdfFoodName"></span><br>
+               <strong>Guests:</strong> <span id="pdfGuests"></span> Pax &nbsp; | &nbsp; 
+               <strong>Tier:</strong> <span id="pdfTier"></span></p>
+        </div>
+        <table class="pdf-table">
+            <thead><tr><th>Description</th><th class="text-right">Estimated Cost</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Venue Booking</strong><br><small id="pdfVenueFormula"></small></td><td class="text-right bold" id="pdfVenue">₹ 0</td></tr>
+                <tr><td><strong>Catering Services</strong><br><small id="pdfCateringFormula"></small></td><td class="text-right bold" id="pdfCatering">₹ 0</td></tr>
+                <tr><td><strong>Decor & Lighting</strong><br><small id="pdfDecorFormula"></small></td><td class="text-right bold" id="pdfDecor">₹ 0</td></tr>
+            </tbody>
+        </table>
+        <div class="pdf-total">
+            <span>Grand Total Estimate:</span>
+            <span class="total-number" id="pdfTotal">₹ 0</span>
+        </div>
+        <div class="pdf-footer"><p>*This is a computer-generated budget estimation based on selected baseline values.</p></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
